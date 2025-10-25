@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CodexLabs | Dijital Dönüşüm Ajansı</title>
+    <meta name="description"
+        content="CodexLabs - Mobil uygulama geliştirme, e-ticaret web sitesi kurulumu, dijital reklam ve web tasarım hizmetleriyle işletmenizi büyütün." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --card: #12172a;
+            --text: #e6eaf2;
+            --muted: #b6bfd6;
+            --brand: #6ea8fe;
+            --ok: #61d095;
+            --warn: #ffb155;
+            --danger: #ff6b6b;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: radial-gradient(1000px 600px at 80% -20%, rgba(110, 168, 254, .15), transparent 60%), var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: saturate(120%) blur(8px);
+            background: rgba(11, 15, 25, .7);
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700
+        }
+
+        .brand .logo {
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--brand), #a78bfa);
+            box-shadow: 0 10px 30px rgba(110, 168, 254, .35);
+            font-weight: 800;
+            color: #0b0f19
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+            transition: .2s transform ease, .2s background ease, .2s border-color ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(255, 255, 255, .28)
+        }
+
+        .hero {
+            padding: 72px 0 36px
+        }
+
+        .hero .grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 36px;
+            align-items: center
+        }
+
+        .kicker {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 12px;
+            letter-spacing: .4px;
+            color: #0b0f19;
+            background: linear-gradient(135deg, var(--ok), #a8ffcf)
+        }
+
+        h1 {
+            font-size: 44px;
+            line-height: 1.15;
+            margin: 14px 0 10px
+        }
+
+        .lead {
+            font-size: 18px;
+            color: var(--muted);
+            margin-bottom: 22px
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap
+        }
+
+        .cta .primary {
+            background: linear-gradient(135deg, var(--brand), #a78bfa);
+            color: #0b0f19;
+            font-weight: 700
+        }
+
+        .cta .ghost {
+            background: transparent
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid rgba(255, 255, 255, .08);
+            border-radius: 18px;
+            padding: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .25)
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .feature .icon {
+            font-size: 22px
+        }
+
+        section {
+            padding: 48px 0
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin: 0 0 14px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        form {
+            display: grid;
+            gap: 12px
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .12);
+            background: #0f1426;
+            color: var(--text)
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical
+        }
+
+        footer {
+            padding: 28px 0;
+            color: var(--muted);
+            border-top: 1px solid rgba(255, 255, 255, .08)
+        }
+
+        @media (max-width: 900px) {
+            .hero .grid {
+                grid-template-columns: 1fr
+            }
+
+            .features {
+                grid-template-columns: 1fr
+            }
+
+            h1 {
+                font-size: 34px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo">CL</div>
+                <span>CodexLabs</span>
+            </div>
+            <nav>
+                <a href="#ozellikler">Hizmetler</a>
+                <a href="#hakkinda">Hakkında</a>
+                <a href="#iletisim" class="btn">İletişim</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <div class="grid">
+                <div>
+                    <span class="kicker">Dijital Gücünüz Biziz 🚀</span>
+                    <h1>CodexLabs ile markanızı <span
+                            style="background:linear-gradient(135deg, var(--brand), #a78bfa); -webkit-background-clip:text; color:transparent">geleceğe
+                            taşıyın</span></h1>
+                    <p class="lead">Mobil uygulama geliştirme, e-ticaret web siteleri, web tasarımı ve reklam
+                        yönetimiyle işletmenizi büyütüyoruz. Kod, tasarım ve stratejiyi birleştirerek markanızın dijital
+                        dünyada parlamasını sağlıyoruz.</p>
+                    <div class="cta">
+                        <a class="btn primary" href="#ozellikler">Hizmetleri Gör</a>
+                        <a class="btn ghost" href="#iletisim">Teklif Al</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <strong>CodexLabs</strong>
+                    <p class="muted">Modern, yenilikçi ve hızlı çözümler. İşletmenize özel dijital altyapılar kuruyoruz.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ozellikler" class="container">
+            <h2 class="section-title">Hizmetlerimiz</h2>
+            <p class="muted">İşinizi dijital dünyaya taşımak için tasarlandı.</p>
+            <div class="features">
+                <div class="feature card">
+                    <div class="icon">📱</div>
+                    <h3>Mobil Uygulama Geliştirme</h3>
+                    <p>iOS ve Android platformları için performanslı, modern ve kullanıcı dostu uygulamalar
+                        geliştiriyoruz.</p>
+                </div>
+                <div class="feature card">
+                    <div class="icon">🛒</div>
+                    <h3>E-Ticaret Web Siteleri</h3>
+                    <p>Satışa hazır, güvenli ve mobil uyumlu e-ticaret sistemleriyle markanızı çevrimiçi dünyaya
+                        taşıyoruz.</p>
+                </div>
+                <div class="feature card">
+                    <div class="icon">💻</div>
+                    <h3>Kurumsal Web Tasarımı</h3>
+                    <p>Firmanızın kimliğini yansıtan profesyonel, modern ve SEO uyumlu web siteleri oluşturuyoruz.</p>
+                </div>
+                <div class="feature card">
+                    <div class="icon">🎨</div>
+                    <h3>Portföy & Kişisel Web Siteleri</h3>
+                    <p>Kariyerinizi, hizmetlerinizi veya markanızı yansıtacak şık kişisel web siteleri tasarlıyoruz.</p>
+                </div>
+                <div class="feature card">
+                    <div class="icon">🏪</div>
+                    <h3>Landing Page & Tanıtım Siteleri</h3>
+                    <p>Kampanyalarınızı ve markalarınızı ön plana çıkaran hedef odaklı tanıtım sayfaları oluşturuyoruz.
+                    </p>
+                </div>
+                <div class="feature card">
+                    <div class="icon">📣</div>
+                    <h3>Dijital Reklam Yönetimi</h3>
+                    <p>Instagram, Google ve Meta reklam kampanyalarınızı yönetiyor, maksimum geri dönüş sağlıyoruz.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="hakkinda" class="container">
+            <h2 class="section-title">Hakkımızda</h2>
+            <p>CodexLabs, yaratıcı tasarım ve yazılımı birleştirerek markalara dijital dönüşüm hizmetleri sunan bir
+                ekip. Amacımız, işletmelere etkili dijital kimlikler kazandırmak ve global ölçekte görünürlük
+                sağlamaktır.</p>
+            <div class="card">
+                <ul>
+                    <li>⚡ Hızlı teslim ve sürekli destek.</li>
+                    <li>💡 Profesyonel tasarım ve strateji.</li>
+                    <li>🌍 Global ölçekte dijital çözümler.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="iletisim" class="container">
+            <h2 class="section-title">Bizimle İletişime Geç</h2>
+            <p class="muted">Formu doldurduğunda mesajın doğrudan bize ulaşır 💬</p>
+            <form action="https://formspree.io/f/mblpjgop" method="POST">
+                <label>Ad Soyad<input name="ad" placeholder="Adın Soyadın" required></label>
+                <label>E-posta<input type="email" name="email" placeholder="ornek@mail.com" required></label>
+                <label>Mesaj<textarea name="mesaj" placeholder="Proje detaylarını yaz..." required></textarea></label>
+                <input type="hidden" name="_replyto" value="beyza.aykan@icloud.com">
+                <button class="btn primary" type="submit">Gönder</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© <span id="yil"></span> CodexLabs · <a
+                href="https://instagram.com/codexlabs">Instagram</a></div>
+    </footer>
+
+    <script>
+        document.getElementById('yil').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
